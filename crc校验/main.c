@@ -21,13 +21,14 @@ int main()
 	unsigned int data = 0;
 	unsigned int length = 0;
 	unsigned int data2 = 0;
-	unsigned int a, b, c, d;
+	unsigned int a, b, c, d, e;
 	unsigned int addr;
 	a = 0;
 	b = 0;
 	c = 0;
 	d = 0;
-	str[0] = 0x01;
+	e = 0;
+	str[0] = e;
 	str[1] = d;
 	str[2] = a;
 	str[3] = b;
@@ -39,17 +40,19 @@ int main()
 	int i;
 	i = 0;
 
-	printf("输入命令，功能码通讯地址，需要读取功能码个数，空格隔开\n");
+	printf("输入从机地址，命令，通讯地址，需要读取字节数，空格隔开\n");
 	//while (i == 1 || i == 2 || i ==3 ||i ==0 )
 	while (1)
 	{
-		scanf("%x %x %x", &d, &addr, &c);
+		scanf("%x %x %x %x", &e, &d, &addr, &c);
 		a = 0xff & addr >> 8;
 		b = 0xff & addr;
+		str[0] = e;
+		str[1] = d;
 		str[2] = a;
 		str[3] = b;
 		str[5] = c;
-		str[1] = d;
+
 		//str[4] = c;
 		//str[5] = d;
 		/*switch (i)
